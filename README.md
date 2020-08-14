@@ -21,7 +21,9 @@ Let&#39;s take a look on windowsupdatebox.exe before the security patch
 As you can see there's a CreateDirectory (as I highlighted in red) which is written in the following form
 
 CreateDirectoryW(FileName, 0i64)
+
 0i64 -> NULL
+
 FileName -> C:\\$WINDOWS.~BT
 
 Actually creating a directory with null security descriptor in c:\\ allow authenticated users to have read&write&delete access on the directory because of the default inherit permission from c:\\
