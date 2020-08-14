@@ -1,4 +1,4 @@
-# **CVE-2020-1571 Windows Setup Elevation of Privileges Bypass**
+# **CVE-2020-1571 Windows Setup Elevation of Privileges Bypass 0day**
 
 **Summary:**
 
