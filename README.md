@@ -16,7 +16,7 @@ The vulnerability exist when the windows setup doesn&#39;t properly enforce perm
 
 Let&#39;s take a look on windowsupdatebox.exe before the security patch
 
-![](RackMultipart20200814-4-nu09im_html_f0260f7bed0fee0e.png)
+![GitHub Logo](/images/image1.png)
 
 As you can see there&#39;s a CreateDirectory (as I highlighted in red) which is written in the following form
 
