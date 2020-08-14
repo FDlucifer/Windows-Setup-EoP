@@ -32,7 +32,7 @@ However after few code (the blue highlighted ones) there&#39;s a call of SetSecu
 
 Let&#39;s try to do some damage, let&#39;s take a look at the patched function
 
-![](RackMultipart20200814-4-nu09im_html_324a1643c70d8785.png)
+![GitHub Logo](/images/image2.png)
 
 Seems look like there&#39;s no SetSecurityInfo call anymore but instead they pass the security descriptor to the function directly which prevent abuse or a possible race condition.
 
@@ -40,15 +40,15 @@ Interesting but there&#39;s still something we can look for, let&#39;s drive dee
 
 The caller actually do some initialization before trying to create this directory,
 
-![](RackMultipart20200814-4-nu09im_html_b63bb74c9735af4.png)
+![GitHub Logo](/images/image3.png)
 
 I was looking for something until I saw this and I can smell the vulnerability here, and after taking a look I found something. It seem look like that the clean-up process attempt to delete C:\$WINDOWS.~BT before attempting to create the directory again without properly checking for reparse point, it&#39;s probably an abuse able point for arbitrary file deletion. Let&#39;s look what procmon gonna say
 
-![](RackMultipart20200814-4-nu09im_html_868aa06f464fd974.png)
+![GitHub Logo](/images/image4.png)
 
 And as it should be there&#39;s no SetSecurityFile, but what if the directory already exist ? as we seen in the code it must deleted
 
-![](RackMultipart20200814-4-nu09im_html_fcfc7e4ec48d342c.png)
+![GitHub Logo](/images/image5.png)
 
 And as you can see here WindowsUpdateBox is trying to delete the directory with the entire subcontent, it seems look like there&#39;s a check for reparse point but it&#39;s not really enough to prevent abuse, if we put an oplock and then switched a reparse point we will have a TOCTOU.
 
@@ -61,5 +61,6 @@ NOTE: The bug is only exploitable on windows 10, on any version of lower than 20
 Steps To Reproduce:
 
 1. Run the poc
-2. Go to settings-\&gt;updates-\&gt;Feature update to windows 10, version X ![](RackMultipart20200814-4-nu09im_html_57641a1c079d2d73.png)
+2. Go to settings-\&gt;updates-\&gt;Feature update to windows 10, version X
+![GitHub Logo](/images/image6.png)
 3. A SYSTEM shell should be spawned
