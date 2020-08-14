@@ -7,4 +7,4 @@ The security update addresses the vulnerability by ensuring the Windows Setup pr
 Description:
 I was the founder of the vulnerability.
 The vulnerability exist when the windows setup doesn’t properly enforce permission on C:\ $WINDOWS.~BT folder creation allowing a local user to execute arbitrary code with system privileges.
-Let’s take a look on windowsupdatebox.exe before the security patch
+Let’s take a look on windowsupdatebox.exe before the security patch.
