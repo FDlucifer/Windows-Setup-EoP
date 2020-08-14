@@ -66,4 +66,6 @@ Steps To Reproduce:
 3. A SYSTEM shell should be spawned
 
 PoC Video:
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/rRxfZQ0jPLA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+[![](https://img.youtube.com/vi/rRxfZQ0jPLA/0.jpg)](https://www.youtube.com/watch?v=rRxfZQ0jPLA)
