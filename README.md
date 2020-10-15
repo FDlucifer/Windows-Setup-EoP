@@ -1,5 +1,7 @@
 # **CVE-2020-1571 Windows Setup Elevation of Privileges Bypass 0day**
 
+**UPDATE**: Microsoft has patched the bug in october 2020 patch and the following CVE was assigned CVE-2020-16908
+
 **Summary:**
 
 Let&#39;s check out what did Microsoft about this vulnerability
